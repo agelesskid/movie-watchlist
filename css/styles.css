@@ -107,4 +107,13 @@ form#search-form button[type=submit] {
     padding: 0.64em;
 }
 
+.film-list-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 571px;
 
+    color: #2E2E2F;
+    font-weight: 700;
+}
