@@ -4,6 +4,7 @@
 
 :root {
     --main-color: #121212;
+    --desc-color: #A5A5A5;
 }
 
 /* General */
@@ -58,7 +59,7 @@ header {
 }
 
 .header-link {
-    margin-top: 5px;
+    margin-top: 0.36em;
 
     font-size: 0.875rem;
     font-weight: 700;
@@ -99,7 +100,7 @@ form#search-form {
 }
 
 .search-wrapper input#search-bar::placeholder {
-    color: #A5A5A5;
+    color: var(--desc-color);
 }
 
 .search-wrapper input#search-bar:focus {
@@ -114,7 +115,7 @@ form#search-form button[type=submit] {
     padding: 0.64em;
 }
 
-main, .film-list-placeholder {
+main, .movie-list-placeholder {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -122,11 +123,93 @@ main, .film-list-placeholder {
 }
 
 main {
-    flex: 1 1 auto;
+    padding: 3.8125em 2.8125em;
 }
 
-.film-list-placeholder {
+.movie-list-placeholder {
     color: #2E2E2F;
     font-weight: 700;
 }
 
+.movie, .movie-rating-wrapper, .movie-info-wrapper {
+    display: flex;
+    margin-bottom: 0.5em;
+}
+
+.movie {
+    border-bottom: 1.5px solid #2C2C2C;
+    padding-bottom: 1.25em;
+
+    color: #fff;
+}
+
+.movie-banner {
+    max-width: 99px;
+    max-height: 147px;
+    border-radius: 5px;
+    margin-right: 1.25em;
+}
+
+.movie-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.movie-rating-wrapper {
+    align-items: baseline;
+}
+
+.movie-name, .movie-rating-wrapper i {
+    margin-right: 0.25em;
+}
+
+.movie-name {
+    font-size: 1.125rem;
+    font-weight: 500;
+}
+
+.movie-rating-wrapper i {
+    color: #FEC654;
+}
+
+.rating-score {
+    font-size: 0.75em;
+}
+
+.movie-info-wrapper, .movie-info-wrapper button {
+    font-size: 0.75rem;
+}
+
+.movie-info-wrapper {
+    align-items: center;
+    gap: 1.125em;
+}
+
+.movie-info-wrapper button {
+    display: flex;
+    align-items: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+
+    color: #fff;
+}
+
+.movie-info-wrapper button i {
+    margin-right: 0.42em;
+}
+
+.movie-desc {
+    padding-right: 3em;
+
+    color: var(--desc-color);
+    font-size: 0.75em;
+}
+
+
+/* Utility */
+
+.fill {
+    flex: 1 1 auto;
+}
