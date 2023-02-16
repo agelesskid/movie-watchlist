@@ -74,6 +74,7 @@ form#search-form {
 
 .search-wrapper i {
     margin-right: 0.857em;
+
     color: #9CA3AF;
 }
 
@@ -86,7 +87,7 @@ form#search-form {
 }
 
 .search-wrapper input#search-bar {
-    width: 80%;
+    width: 70%;
     background-color: #2E2E2F;
 }
 
@@ -99,7 +100,7 @@ form#search-form {
 }
 
 form#search-form button[type=submit] {
-    width: 20%;
+    width: 30%;
     background-color: #4B4B4B;
     border-radius: 0 6px 6px 0;
     cursor: pointer;
