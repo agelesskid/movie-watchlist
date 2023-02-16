@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Movie Watchlist - Search</title>
 </head>
 <body>
@@ -11,12 +12,17 @@
         <h1 class="header-heading">Find your film</h1>
         <a class="header-link" href="./watchlist.html">My watchlist</a>
         <form id="search-form" class="search-form">
-            <label for="search-bar" hidden>Search bar</label>
-            <input name="search-bar" id="search-bar" type="text" placeholder="Search">
-            <button type="submit">Search</button>
+            <div class="search-wrapper">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <label for="search-bar" hidden>Search bar</label>
+                <input name="search-bar" id="search-bar" type="text" placeholder="Blade Runner">
+                <button type="submit">Search</button>
+            </div>
         </form>
     </header>
-    <main></main>
+    <main>
+
+    </main>
 
     <script src="./js/index.js"></script>
 </body>
