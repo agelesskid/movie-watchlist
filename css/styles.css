@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500;700;800&display=swap');
+
+/* Variables */
+
+:root {
+    --main-color: #121212;
+}
+
+/* General */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    max-width: 550px;
+    margin: 0 auto;
+    background-color: var(--main-color);
+
+    font-family: 'Inter', sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+}
+
+li {
+    list-style-type: none;
+}
+
+/* Layout + Typography */
+
+header {
+    position: relative;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.5em;
+    padding: 5em 2.8125em;
+    background: url(../images/main-banner.png) center / cover no-repeat;
+
+    color: #fff;
+}
+
+.header-heading {
+    font-size: 2.625rem;
+    font-weight: 800;
+}
+
+.header-link {
+    margin-top: 5px;
+
+    font-size: 0.875rem;
+    font-weight: 700;
+}
+
+form#search-form {
+    position: absolute;
+    bottom: -8%;
+    left: 9%;
+    right: 9%;
+
+    display: flex;
+}
+
+form#search-form input#search-bar, form#search-form button[type=submit] {
+    border: none;
+    padding: 0.64em 0.857em;
+
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #fff;
+}
+
+form#search-form input#search-bar {
+    width: 80%;
+    background-color: #2E2E2F;
+    border-radius: 6px 0 0 6px;
+}
+
+form#search-form input#search-bar:focus {
+    outline: none;
+}
+
+form#search-form button[type=submit] {
+    width: 20%;
+    background-color: #4B4B4B;
+    border-radius: 0 6px 6px 0;
+    cursor: pointer;
+}
+
+
