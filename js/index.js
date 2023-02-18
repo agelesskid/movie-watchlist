@@ -11,11 +11,11 @@ let movieListHtml = ''
 async function handleSubmit(){
     let searchValue = document.getElementById('search-bar').value
 
-    fetch(`http://www.omdbapi.com/?s=${searchValue}&apikey=51348fe2`)
+    fetch(`http://www.omdbapi.com/?apikey=51348fe2&s=${searchValue}`)
         .then(res=>res.json())
         .then(data=>{
             data.Search.forEach(movieInfo => {
-                fetch(`http://www.omdbapi.com/?i=${movieInfo.imdbID}&apikey=51348fe2`)
+                fetch(`http://www.omdbapi.com/?apikey=51348fe2&i=${movieInfo.imdbID}`)
                     .then(res=>res.json())
                     .then(data=>{
                         movieList.push(data)
