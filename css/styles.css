@@ -130,6 +130,7 @@ main {
     color: #2E2E2F;
     font-weight: 700;
     align-items: center;
+    text-align: center;
 }
 
 .movie, .movie-rating-wrapper, .movie-info-wrapper {
