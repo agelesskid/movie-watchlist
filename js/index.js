@@ -5,28 +5,64 @@ const movieListPlaceholderHtml = `
     </div>
 `
 
-const movieHtml = `
-    <div class="movie">
-        <img class="movie-banner" src="./images/movie-poster.jpg" alt="Movie banner">
-        <div class="movie-content">
-            <div class="movie-rating-wrapper">
-                <h3 class="movie-name">Blade Runner</h3>
-                <i class="fa-solid fa-star rating-star fa-sm"></i>
-                <p class="rating-score">8.1</p>
+let movieList = []
+let movieListHtml = ''
+
+async function handleSubmit(){
+    let searchValue = document.getElementById('search-bar').value
+
+    fetch(`http://www.omdbapi.com/?s=${searchValue}&apikey=51348fe2`)
+        .then(res=>res.json())
+        .then(data=>{
+            data.Search.forEach(movieInfo => {
+                fetch(`http://www.omdbapi.com/?i=${movieInfo.imdbID}&apikey=51348fe2`)
+                    .then(res=>res.json())
+                    .then(data=>{
+                        movieList.push(data)
+                        movieListHtml = getMovieListHtml()
+                        renderMovieList()
+                }) 
+            })
+        })
+    
+    movieList = []
+}
+
+function getMovieListHtml(){
+    let html = ''
+
+    movieList.forEach(movie => {
+        html += `
+            <div class="movie">
+                <img class="movie-banner" src="${movie.Poster}" alt="Movie banner">
+                <div class="movie-content">
+                    <div class="movie-rating-wrapper">
+                        <h3 class="movie-name">${movie.Title}</h3>
+                        <i class="fa-solid fa-star rating-star fa-sm"></i>
+                        <p class="rating-score">${movie.imdbRating}</p>
+                    </div>
+                    <div class="movie-info-wrapper">
+                        <p>${movie.Runtime}</p>
+                        <p>${movie.Genre}</p>
+                        <button type="button" data-movieID="${movie.imdbID}">
+                            <i class="fa-solid fa-circle-plus fa-inverse fa-lg"></i>
+                            <p>Watchlist</p>
+                        </button>
+                    </div>
+                    <p class="movie-desc">${movie.Plot}</p>
+                </div>
             </div>
-            <div class="movie-info-wrapper">
-                <p>116 min</p>
-                <p>Drama, Mystery, Sci-fi</p>
-                <button type="button">
-                    <i class="fa-solid fa-circle-plus fa-inverse fa-lg"></i>
-                    <p>Watchlist</p>
-                </button>
-            </div>
-            <p class="movie-desc">
-                A blade runner must pursue and terminate four
-                replicants who stole a ship in space,
-                and have returned to Earth to find their creator.
-            </p>
-        </div>
-    </div>
-`
+        `
+    })
+    
+    return html
+}
+
+function renderMovieList(){
+    document.getElementById('movie-list').innerHTML = movieListHtml
+}
+
+document.getElementById('search-form').addEventListener('submit', e => {
+    e.preventDefault()
+    handleSubmit()
+})
