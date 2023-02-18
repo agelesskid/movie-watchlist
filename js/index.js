@@ -1,10 +1,13 @@
-import {listFromLocalStorage} from './watchlist.js'
+import { listFromLocalStorage } from './localStorage.js'
+import { addToLocalStorage } from './localStorage.js'
 
 let myList = []
+const movieList = document.getElementById('movie-list')
 
 async function handleSubmit(){
     let searchValue = document.getElementById('search-bar').value
     let html = ''
+    let watchlistIcon = ''
 
     const res = await fetch(`http://www.omdbapi.com/?apikey=51348fe2&s=${searchValue}`)
     const data = await res.json()
@@ -14,6 +17,12 @@ async function handleSubmit(){
             const movie = await res.json()
     
             if(movie.Poster == 'N/A'){movie.Poster = './images/no-image.png'}
+            
+            if(listFromLocalStorage.indexOf(movie.imdbID) === -1){
+                watchlistIcon = 'fa-circle-plus'
+            } else {
+                watchlistIcon = 'fa-circle-check'
+            }
             
             html += `
                 <div class="movie">
@@ -27,9 +36,9 @@ async function handleSubmit(){
                         <div class="movie-info-wrapper">
                             <p>${movie.Runtime}</p>
                             <p>${movie.Genre}</p>
-                            <button type="button" data-movieID="${movie.imdbID}">
-                                <i class="fa-solid fa-circle-plus fa-inverse fa-lg" data-movieID="${movie.imdbID}"></i>
-                                <p data-movieID="${movie.imdbID}">Watchlist</p>
+                            <button type="button" class="watchlist-btn" data-movie-id="${movie.imdbID}">
+                                <i class="fa-solid ${watchlistIcon} fa-inverse fa-lg"></i>
+                                <p>Watchlist</p>
                             </button>
                         </div>
                         <p class="movie-desc">${movie.Plot}</p>
@@ -37,6 +46,7 @@ async function handleSubmit(){
                 </div>
             `
         }
+        movieList.classList.remove('fill')
     } else {
         html = `
             <div class="movie-list-placeholder" style="color: #787878; max-width: 60%;">
@@ -45,18 +55,8 @@ async function handleSubmit(){
         `
     }
     
-    document.getElementById('movie-list').innerHTML = html
+    movieList.innerHTML = html
 
-}
-
-function addToLocalStorage(id){
-    if(listFromLocalStorage){
-        myList = listFromLocalStorage
-    }
-    myList.push(id)
-    localStorage.setItem('myList', JSON.stringify(myList))
-    console.log(localStorage)
-    
 }
 
 document.getElementById('search-form').addEventListener('submit', e => {
@@ -65,7 +65,8 @@ document.getElementById('search-form').addEventListener('submit', e => {
 })
 
 document.addEventListener('click', e=>{
-    if(e.target.dataset.movieid){
-        addToLocalStorage(e.target.dataset.movieid)
+    if(e.target.closest('.watchlist-btn')){
+        let id = e.target.dataset.movieId ? e.target.dataset.movieId : e.target.parentElement.dataset.movieId
+        addToLocalStorage(id, myList)
     }
 })
