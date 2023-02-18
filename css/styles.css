@@ -48,9 +48,14 @@ header {
     align-items: center;
     gap: 1.5em;
     padding: 5em 2.8125em;
+    margin-bottom: 3.8125em;
     background: url(../images/main-banner.png) center / cover no-repeat;
 
     color: #fff;
+}
+
+.watchlist-header {
+    margin-bottom: 2.1875em;
 }
 
 .header-heading {
@@ -122,7 +127,7 @@ main, .movie-list-placeholder {
 }
 
 main {
-    padding: 3.8125em 2.8125em;
+    padding: 0 2.8125em;
     align-items: flex-start;
 }
 
