@@ -32,6 +32,7 @@ function getMovieListHtml(){
     let html = ''
 
     movieList.forEach(movie => {
+        if(movie.Poster == 'N/A'){movie.Poster = './images/no-image.png'}
         html += `
             <div class="movie">
                 <img class="movie-banner" src="${movie.Poster}" alt="Movie banner">
