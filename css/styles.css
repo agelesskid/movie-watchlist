@@ -5,6 +5,7 @@
 :root {
     --main-color: #121212;
     --desc-color: #A5A5A5;
+    --placeholder: #787878;
 }
 
 /* General */
@@ -52,10 +53,6 @@ header {
     background: url(../images/main-banner.png) center / cover no-repeat;
 
     color: #fff;
-}
-
-.watchlist-header {
-    margin-bottom: 2.1875em;
 }
 
 .header-heading {
@@ -198,7 +195,7 @@ main {
     gap: 1.125em;
 }
 
-.movie-info-wrapper button {
+.movie-watchlist-btn {
     display: flex;
     align-items: center;
     background: none;
@@ -208,7 +205,7 @@ main {
     color: #fff;
 }
 
-.movie-info-wrapper button i {
+.movie-watchlist-btn i {
     margin-right: 0.42em;
 }
 
@@ -219,10 +216,49 @@ main {
     font-size: 0.75em;
 }
 
+.not-found-placeholder{
+    max-width: 60%;
+}
+
+/* watchlist.html */
+
+.watchlist-header {
+    margin-bottom: 2.1875em;
+}
+
+.watchlist-placeholder{
+    margin-bottom: 0.9375em;
+}
+
+.watchlist-placeholder p {
+    font-size: 1.125rem;
+}
+
+.watchlist-link {
+    display: flex;
+    align-items: center;
+}
+
+.watchlist-link i {
+    margin-right: 0.4375em;
+}
+
+.watchlist-link p {
+    font-size: 0.875rem;
+}
+
 
 /* Utility */
 
 .fill {
     flex: 1 1 auto;
     align-items: center;
+}
+
+.white-border {
+    border-color: #E5E7EB;
+}
+
+.placeholder {
+    color: var(--placeholder);
 }

@@ -12,7 +12,15 @@
         <h1 class="header-heading">My watchlist</h1>
         <a class="header-link" href="./">Search for movies</a>   
     </header>
-    <main id="movie-list"></main>
+    <main id="movie-list" class="fill">
+        <div class="movie-list-placeholder watchlist-placeholder placeholder">
+            <p>Your watchlist is looking a little empty...</p>
+        </div>
+        <a class="watchlist-link" href="./">
+            <i class="fa-solid fa-circle-plus fa-inverse fa-md"></i>
+            <p>Let’s add some movies!</p>
+        </a>
+    </main>
 
     <script src="./js/watchlist.js" type="module"></script>
 </body>

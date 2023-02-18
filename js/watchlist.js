@@ -1,6 +1,8 @@
 import { listFromLocalStorage } from './localStorage.js'
 import { removeFromLocalStorage } from './localStorage.js'
 
+const movieList = document.getElementById('movie-list')
+
 async function renderWatchlist(){
     let html = ''
 
@@ -8,11 +10,11 @@ async function renderWatchlist(){
         console.log(imdbID)
         const res = await fetch(`http://www.omdbapi.com/?apikey=51348fe2&i=${imdbID}`)
         const movie = await res.json()
-        
+
         if(movie.Poster == 'N/A'){movie.Poster = './images/no-image.png'}
-    
+
         html += `
-            <div class="movie" style="border-color: #E5E7EB;">
+            <div class="movie white-border">
                 <img class="movie-banner" src="${movie.Poster}" alt="Movie banner">
                 <div class="movie-content">
                     <div class="movie-rating-wrapper">
@@ -32,9 +34,16 @@ async function renderWatchlist(){
                 </div>
             </div>
         `
-    }
 
-    document.getElementById('movie-list').innerHTML = html
+        movieList.classList.remove('fill')
+        
+    }
+        
+        
+
+    if(listFromLocalStorage.length){
+        movieList.innerHTML = html
+    }
 }
 
 document.addEventListener('click', e=>{

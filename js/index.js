@@ -36,7 +36,7 @@ async function handleSubmit(){
                         <div class="movie-info-wrapper">
                             <p>${movie.Runtime}</p>
                             <p>${movie.Genre}</p>
-                            <button type="button" class="watchlist-btn" data-movie-id="${movie.imdbID}">
+                            <button type="button" class="movie-watchlist-btn" data-movie-id="${movie.imdbID}">
                                 <i class="fa-solid ${watchlistIcon} fa-inverse fa-lg"></i>
                                 <p>Watchlist</p>
                             </button>
@@ -49,7 +49,7 @@ async function handleSubmit(){
         movieList.classList.remove('fill')
     } else {
         html = `
-            <div class="movie-list-placeholder" style="color: #787878; max-width: 60%;">
+            <div class="movie-list-placeholder not-found-placeholder placeholder">
                 <p>Unable to find what you’re looking for. Please try another search.</p>
             </div>
         `
