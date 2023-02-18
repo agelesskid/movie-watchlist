@@ -12,7 +12,7 @@ async function renderWatchlist(){
         if(movie.Poster == 'N/A'){movie.Poster = './images/no-image.png'}
     
         html += `
-            <div class="movie">
+            <div class="movie" style="border-color: #E5E7EB;">
                 <img class="movie-banner" src="${movie.Poster}" alt="Movie banner">
                 <div class="movie-content">
                     <div class="movie-rating-wrapper">

@@ -143,6 +143,7 @@ main {
     align-items: center;
     border-bottom: 1.5px solid #2C2C2C;
     padding-bottom: 1.25em;
+    margin-bottom: 1.5625em;
 
     color: #fff;
 }
